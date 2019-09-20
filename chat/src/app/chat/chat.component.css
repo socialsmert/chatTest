@@ -1,0 +1,274 @@
+.wrrapper{
+    display: block;
+    width:100%;
+    height: 100vh;
+    background-color: #586670;
+
+    text-align: center;
+}
+
+.header{
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+
+    text-align: center;
+}
+
+.header-inner{
+    width: 90%;
+    max-width: 1140px;
+
+    text-align: left;
+    line-height: 80px;
+}
+
+.messenger-area{
+    width: 90%;
+    max-width: 1140px;
+    padding-top: 20px;
+}
+
+.chat-area{
+    width: calc(100% - 260px);
+    height: calc(100vh - 120px);
+    background-color: #d7dfe7;
+}
+
+.chat-header{
+    width: 100%;
+    height: 170px;
+
+    background-color: #becbd9;
+}
+
+.chat-header-image{
+    width: 170px;
+    height: 170px;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+}
+
+.chat-header-image img{
+    object-fit: cover;
+    width: 100%;
+    height: 170px;
+}
+
+.chat-header-info{
+    width: calc(100% - 170px);
+    height: 100%;
+    float: left;
+
+    text-align: left;
+    padding: 20px;
+    color: #333333;
+}
+
+.chat-header-title{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+
+    font-size: 26px;
+}
+
+.chat-header-text{
+    width: 100%;
+    font-size: 16px;
+}
+
+.message-area{
+    overflow-y: auto;
+    padding: 10px;
+    width: 100%;
+    height: calc(100% - 250px);
+}
+
+.message{
+    width: 100%;
+    max-width: 500px;
+    height: 79px;
+    background: white;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.message-true{
+    float: right;
+}
+
+.message-false{
+    float: left;
+}
+
+.message-header{
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #f0cbb3;
+}
+
+.message-header-false{
+    background: #becbd9;
+}
+
+.message-body{
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+}
+
+
+
+.input-area{
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.input-field{
+    border: 1px solid #74b9ef;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    width: calc(100% - 225px);
+    height: 38px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.input-button{
+    -webkit-appearance: none;
+    width: 195px;
+    height: 38px;
+    margin-right: 10px;
+
+    background-color: #428bca;
+    border: 1px solid #357ebc;
+    border-radius: 5px;
+
+    color: #ffffff
+}
+
+.contacts-area{
+    width: 260px;
+    height: calc(100vh - 120px);
+    background: #ffffff;
+    vertical-align: top;
+}
+
+.tab-1, .tab-2{
+    cursor: pointer;
+    height: 42px;
+    line-height: 42px;
+    width: 130px;
+    float: left;
+    text-align: center;
+    background: grey;
+}
+
+.tab-1{
+    background: #ffffff;
+}
+.tab-2{
+    background: #f8f8f8;
+    border-left: 1px solid #dddddd; 
+    border-bottom: 1px solid #dddddd; 
+}
+
+.contacts{
+    width: 100%;
+    height: calc(100% - 122px);
+    overflow-y: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+.contact-item{
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.contact-item-status{
+    position: absolute;
+    left: 45px;
+    top: 58px;
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    border: 3px solid white;
+    background: #dddddd;
+}
+
+.contact-item-status-false{
+    background: #dddddd;
+}
+
+.contact-item-status-true{
+    background: lightgreen;
+}
+
+.contact-item-image{
+    float: left;
+    width: 63px;
+    height: 63px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.contact-item-info{
+    width: calc(100% - 63px);
+    height: 63px;
+    padding: 4px;
+    padding-left: 10px;
+    float: left;
+
+    text-align: left;
+}
+
+.contact-name{
+    width: 100%;
+    font-size: 20px;
+}
+
+.contact-info{
+    width: 100%;
+    overflow: hidden;
+    height: 33px;
+    font-size: 14px;
+}
+
+#contacts-all{
+    display: none;
+}
+
+.search-area{
+    width: 100%;
+    padding: 15px;
+}
+
+.seacrh-field{
+    border: 1px solid #becbd9;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 38px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

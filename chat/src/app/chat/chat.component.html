@@ -1,0 +1,81 @@
+<div class="wrrapper">
+    <div class="header">
+      <div class="header-inner">
+        <h1>Welcome, {{name}}! <a href="" (click) = "logoutClient()">Log out</a> </h1>
+      </div>
+    </div>
+  
+    <div class="messenger-area">
+      <div class="chat-area">
+        <div class="chat-header">
+          <div class="chat-header-image">
+            <img src="{{opponentPicture}}" alt="">
+          </div>
+          <div class="chat-header-info">
+            <div class="chat-header-title">{{opponentName}}</div>
+            <div class="chat-header-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ab laudantium, ea voluptates, illo dolor expedita eaque provident vero placeat, culpa quibusdam perspiciatis perferendis quisquam ad non sit commodi aut?</div>
+          </div>
+        </div>
+  
+        <div class="message-area" id="message-area-id">
+          <div  *ngFor="let item of messageArray" class="message message-{{item.owner}}">
+              <div class="message-header message-header-{{item.owner}}">
+                <div class="message-header-title">{{item.name}}</div>
+              </div>
+              <div class="message-body">{{item.message}}</div>
+            
+          </div>
+        </div>
+  
+        <div class="input-area">
+          
+          <input type="text" class="input-field" [(ngModel)] = "messageValue" (keydown)="sendMessageByEnter($event)" placeholder="Enter your message">
+          <input type="submit" class="input-button" (click)="sendMessage()" value="Send message">
+  
+        </div>
+      </div>
+  
+  
+  
+      <div class="contacts-area">
+        <div class="tab-area">
+          <div class="tab-1" id="tab-online" (click) = "contactsSwitch(true)">Online</div>
+          <div class="tab-2" id="tab-all" (click) = "contactsSwitch(false)">All</div>
+        </div>
+        <div  class="contacts" id="contacts-all">
+          <div *ngFor="let item of contactsDuplicate" class="contact-item" (click)="openChat(item._id, item.name, item.picture, item.isbot)">
+            <div class="contact-item-status contact-item-status-{{item.online}}"></div>
+            <img src="{{item.picture}}" class="contact-item-image" alt="">
+            <div class="contact-item-info">
+              <div class="contact-name">{{item.name}}</div>
+              <div class="contact-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nam iure, voluptates ex minima voluptatum rem iusto maxime dignissimos nisi mollitia, ratione molestias perspiciatis corrupti repudiandae.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div  class="contacts" id="contacts-online">
+            <div *ngFor="let item of contactsOnlineDuplicate" class="contact-item" (click)="openChat(item._id, item.name, item.picture, item.isbot)">
+              <div class="contact-item-status contact-item-status-{{item.online}}"></div>
+              <img src="{{item.picture}}" class="contact-item-image" alt="">
+              <div class="contact-item-info">
+                <div class="contact-name">{{item.name}}</div>
+                <div class="contact-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nam iure, voluptates ex minima voluptatum rem iusto maxime dignissimos nisi mollitia, ratione molestias perspiciatis corrupti repudiandae.</div>
+             
+              </div>
+            </div>
+          </div>
+
+        <div class="search-area">
+          <input class="seacrh-field" type="text" [(ngModel)] = "searchValue" (input)="searchContact()" placeholder="Search...">
+        </div>
+      </div>
+  
+  
+  
+    </div>
+  
+    
+  </div>
+  
+  
