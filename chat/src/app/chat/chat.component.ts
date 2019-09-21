@@ -27,6 +27,7 @@ export class ChatComponent implements OnInit {
   opponentPicture: string = 'https://i.stack.imgur.com/l60Hf.png'
   receiverId: string = ''
   isBot: boolean
+  limit: number = 5
 
   constructor(private http: HttpClient, 
               private auth: AuthService,
@@ -55,11 +56,11 @@ export class ChatComponent implements OnInit {
     this.chatService.listen("newMessage").subscribe((data) => {
       if(data.ownerId == localStorage.id){
         data.owner = true;
-        console.log(data.owner)
       }else{
         data.owner = false;
       }
       this.messageArray.push(data);
+      this.scrollChat();
     })
 
     this.chatService.listen("contacts").subscribe((data) => {
@@ -67,6 +68,17 @@ export class ChatComponent implements OnInit {
       this.contactsDuplicate = data;
       this.showOnline()
       this.searchContact() 
+    })
+
+    this.chatService.listen("moreMessage").subscribe((data) => {
+      this.messageArray = data;
+      this.messageArray.map((message) => {
+        if(message.ownerId == localStorage.id){
+          message.owner = true;
+        }else{
+          message.owner = false
+        }
+      })
     })
 
     this.chatService.listen("chat").subscribe((data) => {
@@ -78,17 +90,16 @@ export class ChatComponent implements OnInit {
             message.owner = false
           }
       })
-      console.log(this.messageArray)
       this.chatId = data.chatId
     })
   }
 
   openChat(id, name, picture, isbot = false){
     this.isBot = isbot;
-    console.log(this.isBot);
     this.messageArray = [];
     this.messageValue = '';
     this.opponentName = name;
+    this.limit = 5;
     this.opponentPicture = picture;
     this.receiverId = id;
       if(this.isBot == true){
@@ -101,12 +112,20 @@ export class ChatComponent implements OnInit {
     }
 
 
-    scrollChat(){
+  scrollChat(){
       setTimeout(() => {
         let objDiv = document.getElementById("message-area-id");
         objDiv.scrollTop = objDiv.scrollHeight;
       }, 300);
-    }
+  }
+
+  onScroll(){
+    let objDiv = document.getElementById("message-area-id");
+    if(objDiv.scrollTop == 0){
+      this.limit +=5;
+      this.chatService.emit('loadMore',  [this.chatId, this.limit]);
+    } 
+  }
 
   sendMessage(chatId = this.chatId){
     const message = this.messageValue.trim();

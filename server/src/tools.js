@@ -10,3 +10,11 @@ export const reverse = (data) => {
     }
     return newString;
 }
+
+export const reverseArray = (data) => {
+    let newArray = [];
+    for (var i = data.length - 1; i >= 0; i--) {
+        newArray.push(data[i]);
+    }
+    return newArray;
+}

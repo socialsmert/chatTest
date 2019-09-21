@@ -51,6 +51,13 @@ export default class Socket{
             });
             
         })
+
+        socket.on('loadMore', (data) => {
+            this.app.models.message.getMessagesByChatLimit(data[0], data[1]).then((chat) => {
+                console.log(chat);
+                socket.emit('moreMessage', chat)
+            });
+        })
     
         socket.on('openBotChat', (data) => {
             socket.leave(data[0])

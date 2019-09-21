@@ -17,8 +17,9 @@
           </div>
         </div>
   
-        <div class="message-area" id="message-area-id">
+        <div class="message-area" id="message-area-id" (scroll)="onScroll($event)">
           <div  *ngFor="let item of messageArray" class="message message-{{item.owner}}">
+              <div class="arrow arrow-{{item.owner}}"></div>
               <div class="message-header message-header-{{item.owner}}">
                 <div class="message-header-title">{{item.name}}</div>
               </div>

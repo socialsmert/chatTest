@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   signUp(){
+    if(this.regPassword == this.regPassword2){
     this.Auth.signUp(this.regName, this.regPassword, this.regEmail, this.regPicture).subscribe( data => {
       if(data){
         console.log(data);
@@ -54,6 +55,9 @@ export class LoginComponent implements OnInit {
         this.loginClient();
       }
     })
+  }else{
+    alert("Enter valid passwords!")
+  }
   }
 
 }
